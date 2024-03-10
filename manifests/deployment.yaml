@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Automated-Deployment
+  labels:
+    app: Automated-Deployment
+  namespace: namespace-workflow-1710044319686
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Automated-Deployment
+  template:
+    metadata:
+      labels:
+        app: Automated-Deployment
+    spec:
+      containers:
+        - name: Automated-Deployment
+          image: tarun.azurecr.io/demo-1710044319686:latest
+          ports:
+            - containerPort: 8000
